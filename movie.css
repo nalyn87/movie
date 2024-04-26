@@ -1,3 +1,8 @@
+
+body {
+    background-color: rgb(0, 0, 0);
+}
+
 .title {
     background-color: green;
 
@@ -22,17 +27,23 @@
 }
 
 .moviecard {
-    display: flex;
-    flex-direction: row;
+
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    place-items: center;
     align-items: center;
-    justify-content: center;
+
 
     margin: 30px auto 0px auto;
 }
 
 .col {
-    width: 150px;
-    height: 100px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 20px 5px rgba(255, 255, 255, 0.7) ;
+    width: 400px;
+    height: 1000px;
 
-    margin: 0px 20px 0px 20px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
 }
