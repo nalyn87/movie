@@ -75,7 +75,7 @@ body {
 
 
 .moviecard {
-    width: 90%;
+    width: 85%;
 
     display:grid;
     grid-template-columns: repeat(3,1fr);
