@@ -65,7 +65,7 @@ function movieSearch() {
 
     // 검색한 값과 영화 제목 비교
     const searchedData = movieData.filter((i) => {
-        if(i['title'].toLowerCase().search(ex) !== -1) {
+        if (i['title'].toLowerCase().search(ex) !== -1) {
             return i['title'];
         }
     });
@@ -73,20 +73,30 @@ function movieSearch() {
     // 영화 보이기/안보이기
     let num = 0;
 
-    for (let count = 0; count<20; count++) {
-        const movieCardDiv = document.querySelector(`#movieCard${count}`);
-        const movieTitle = document.querySelector(`#movieTitle${count}`);
+    if (searchedData.length > 0) {
+        for (let count = 0; count < 20; count++) {
+            const movieCardDiv = document.querySelector(`#movieCard${count}`);
+            const movieTitle = document.querySelector(`#movieTitle${count}`);
 
-        if (searchedData[num]['title'] === movieTitle.innerHTML) {
-            movieCardDiv.setAttribute("style", "display: block;")
-            if(searchedData.length-1 > num) {num++};
-        } else {
-            console.log(searchedData[num]['title'], movieTitle.innerHTML);
-            movieCardDiv.setAttribute("style", "display: none;")
-        }
+            if (searchedData[num]['title'] === movieTitle.innerHTML) {
+                movieCardDiv.setAttribute("style", "display: block;")
+                if (searchedData.length - 1 > num) { num++ };
+            } else {
+                console.log(searchedData[num]['title'], movieTitle.innerHTML);
+                movieCardDiv.setAttribute("style", "display: none;")
+            }
 
+        };
+    } else {
+        alert("해당 영화는 존재하지 않습니다.");
     }
+}
 
+// 카드 초기화
+function resetCard() {
+    for (let count = 0; count < 20; count++) {
+        document.querySelector(`#movieCard${count}`).setAttribute("style", "display: block;");
+    }
 }
 
 // 출력
@@ -97,12 +107,12 @@ const print = async () => {
         makeCard(item, count);
         count++;
     });
-    
+
     document.getElementById("searchbtn").addEventListener("click", movieSearch);
     document.getElementById("search").focus();
     document.getElementById("search").addEventListener('keydown', event => {
-        if (event.key == 'Enter') {movieSearch()};
+        if (event.key == 'Enter') { movieSearch() };
     });
-} 
+}
 
 print();
