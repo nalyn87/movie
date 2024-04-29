@@ -74,7 +74,7 @@ function movieSearch() {
     let num = 0;
 
     if (searchedData.length > 0) {
-        for (let count = 0; count < 20; count++) {
+        for (let count = 0; count < movieData.length; count++) {
             const movieCardDiv = document.querySelector(`#movieCard${count}`);
             const movieTitle = document.querySelector(`#movieTitle${count}`);
 
@@ -94,8 +94,9 @@ function movieSearch() {
 
 // 카드 초기화
 function resetCard() {
-    for (let count = 0; count < 20; count++) {
+    for (let count = 0; count < movieData.length; count++) {
         document.querySelector(`#movieCard${count}`).setAttribute("style", "display: block;");
+        document.querySelector("#searchbar").value = "";
     }
 }
 
