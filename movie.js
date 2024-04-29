@@ -89,10 +89,6 @@ function movieSearch() {
 
 }
 
-
-
-
-
 // 출력
 const print = async () => {
     const data = await getdata();
