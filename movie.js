@@ -11,7 +11,7 @@ const options = {
 const movieData = [];
 
 async function getdata() {
-    const response = await fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options);
+    const response = await fetch('https://api.themoviedb.org/3/movie/top_rated?language=ko-US&page=1', options);
     const data = await response.json();
 
 
@@ -90,6 +90,7 @@ function movieSearch() {
     } else {
         alert("해당 영화는 존재하지 않습니다.");
     }
+
 }
 
 // 카드 초기화
@@ -108,7 +109,7 @@ const print = async () => {
         makeCard(item, count);
         count++;
     });
-
+    
     document.getElementById("searchbtn").addEventListener("click", movieSearch);
     document.getElementById("search").focus();
     document.getElementById("search").addEventListener('keydown', event => {
